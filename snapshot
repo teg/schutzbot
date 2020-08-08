@@ -1,0 +1,65 @@
+#!/usr/bin/python3
+
+import argparse
+import json
+import os
+import subprocess
+import sys
+import tempfile
+
+
+def write_repofile(f, repoid, repo):
+    f.write(f"[{repoid}]\n")
+
+    def write_option(key, value):
+        f.write(f"{key}={value}\n")
+
+    # silence dnf warning about missing name
+    write_option("name", repoid)
+
+    write_option(repo["type"], repo["url"])
+
+
+def main(distro, snapshot, output):
+    with open("distros.json") as distros:
+        distros = json.load(distros)
+
+    for arch in distros[distro]["arches"]:
+        packages = f"{output}/{distro}"
+
+        for num, repo in enumerate(arch["repos"]):
+            metadata = f"{output}/{distro}/snapshot{snapshot}/{arch['name']}/"
+
+            with tempfile.TemporaryDirectory(prefix="schutzbot-sync-") as confdir:
+                dnfconf = f"{confdir}/dnf.conf"
+
+                with open(dnfconf, "w") as conf:
+                    conf.write("[main]\n")
+                    conf.write(f"module_platform_id={distros[distro]['module_platform_id']}\n")
+                    write_repofile(conf, f"repo{num}", repo)
+
+                subprocess.run([
+                        "dnf", "-v",
+                        "reposync",
+                        "--setopt", "reposdir=",
+                        "--setopt", f"fastestmirror=true",
+                        "--setopt", f"skip_if_unavailable=false",
+                        "--installroot", confdir,
+                        "--config", dnfconf,
+                        "--download-metadata",
+                        "--metadata-path", metadata,
+                        "--norepopath",
+                        "--download-path", packages], check=True)
+
+                os.symlink("../../../Packages", f"{metadata}/repo{num}/Packages")
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Snapshot repository")
+    parser.add_argument("--distro", help="distribution to snapshot", required=True)
+    parser.add_argument("--snapshot", type=int, help="snapshot number", required=True)
+    parser.add_argument("--output", metavar="OUTPUT_DIRECTORY", type=os.path.abspath, help="path to the output directory", required=True)
+    args = parser.parse_args()
+
+    main(args.distro, args.snapshot, args.output)
+    sys.exit()

@@ -1,0 +1,153 @@
+{
+  "fedora-31": {
+    "module_platform_id": "platform:f31",
+    "arches": [
+      {
+        "name": "x86_64",
+        "repos": [
+          {
+            "type": "metalink",
+            "url": "https://mirrors.fedoraproject.org/metalink?repo=fedora-31&arch=x86_64"
+          },
+          {
+            "type": "metalink",
+            "url": "https://mirrors.fedoraproject.org/metalink?repo=updates-released-f31&arch=x86_64"
+          },
+          {
+            "type": "metalink",
+            "url": "https://mirrors.fedoraproject.org/metalink?repo=fedora-modular-31&arch=x86_64"
+          },
+          {
+            "type": "metalink",
+            "url": "https://mirrors.fedoraproject.org/metalink?repo=updates-released-modular-f31&arch=x86_64"
+          }
+        ]
+      },
+      {
+        "name": "aarch64",
+        "repos": [
+          {
+            "type": "metalink",
+            "url": "https://mirrors.fedoraproject.org/metalink?repo=fedora-31&arch=aarch64"
+          },
+          {
+            "type": "metalink",
+            "url": "https://mirrors.fedoraproject.org/metalink?repo=updates-released-f31&arch=aarch64"
+          },
+          {
+            "type": "metalink",
+            "url": "https://mirrors.fedoraproject.org/metalink?repo=fedora-modular-31&arch=aarch64"
+          },
+          {
+            "type": "metalink",
+            "url": "https://mirrors.fedoraproject.org/metalink?repo=updates-released-modular-f31&arch=aarch64"
+          }
+        ]
+      }
+    ]
+  },
+  "fedora-32": {
+    "module_platform_id": "platform:f32",
+    "arches": [
+      {
+        "name": "x86_64",
+        "repos": [
+          {
+            "type": "metalink",
+            "url": "https://mirrors.fedoraproject.org/metalink?repo=fedora-32&arch=x86_64"
+          },
+          {
+            "type": "metalink",
+            "url": "https://mirrors.fedoraproject.org/metalink?repo=updates-released-f32&arch=x86_64"
+          },
+          {
+            "type": "metalink",
+            "url": "https://mirrors.fedoraproject.org/metalink?repo=fedora-modular-32&arch=x86_64"
+          },
+          {
+            "type": "metalink",
+            "url": "https://mirrors.fedoraproject.org/metalink?repo=updates-released-modular-f32&arch=x86_64"
+          }
+        ]
+      },
+      {
+        "name": "aarch64",
+        "repos": [
+          {
+            "type": "metalink",
+            "url": "https://mirrors.fedoraproject.org/metalink?repo=fedora-32&arch=aarch64"
+          },
+          {
+            "type": "metalink",
+            "url": "https://mirrors.fedoraproject.org/metalink?repo=updates-released-f32&arch=aarch64"
+          },
+          {
+            "type": "metalink",
+            "url": "https://mirrors.fedoraproject.org/metalink?repo=fedora-modular-32&arch=aarch64"
+          },
+          {
+            "type": "metalink",
+            "url": "https://mirrors.fedoraproject.org/metalink?repo=updates-released-modular-f32&arch=aarch64"
+          }
+        ]
+      }
+    ]
+  },
+  "rhel-8.3": {
+    "module_platform_id": "platform:el8",
+    "arches": [
+      {
+        "name": "x86_64",
+        "repos": [
+          {
+            "type": "baseurl",
+            "url": "http://download.eng.rdu.redhat.com/rhel-8/nightly/RHEL-8/latest-RHEL-8.3/compose/BaseOS/x86_64/os/"
+          },
+          {
+            "type": "baseurl",
+            "url": "http://download.eng.rdu.redhat.com/rhel-8/nightly/RHEL-8/latest-RHEL-8.3/compose/AppStream/x86_64/os/"
+          }
+        ]
+      },
+      {
+        "name": "aarch64",
+        "repos": [
+          {
+            "type": "baseurl",
+            "url": "http://download.eng.rdu.redhat.com/rhel-8/nightly/RHEL-8/latest-RHEL-8.3/compose/BaseOS/aarch64/os/"
+          },
+          {
+            "type": "baseurl",
+            "url": "http://download.eng.rdu.redhat.com/rhel-8/nightly/RHEL-8/latest-RHEL-8.3/compose/AppStream/aarch64/os/"
+          }
+        ]
+      },
+      {
+        "name": "ppc64le",
+        "repos": [
+          {
+            "type": "baseurl",
+            "url": "http://download.eng.rdu.redhat.com/rhel-8/nightly/RHEL-8/latest-RHEL-8.3/compose/BaseOS/ppc64le/os/"
+          },
+          {
+            "type": "baseurl",
+            "url": "http://download.eng.rdu.redhat.com/rhel-8/nightly/RHEL-8/latest-RHEL-8.3/compose/AppStream/ppc64le/os/"
+          }
+        ]
+      },
+      {
+        "name": "s390x",
+        "repos": [
+          {
+            "type": "baseurl",
+            "url": "http://download.eng.rdu.redhat.com/rhel-8/nightly/RHEL-8/latest-RHEL-8.3/compose/BaseOS/s390x/os/"
+          },
+          {
+            "type": "baseurl",
+            "url": "http://download.eng.rdu.redhat.com/rhel-8/nightly/RHEL-8/latest-RHEL-8.3/compose/AppStream/s390x/os/"
+          }
+        ]
+      }
+    ]
+  }
+}
